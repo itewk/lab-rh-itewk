@@ -1,0 +1,7 @@
+ipaserver:
+  hosts:
+    idm.lab.rh-itewk:
+
+bastions:
+  hosts:
+    rhel10.lab.rh-itewk:
