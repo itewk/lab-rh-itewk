@@ -1,5 +1,5 @@
 ---
-- name: IDM | Install
+- name: IDM Server | Install
   hosts: ipaserver
   become: true
 

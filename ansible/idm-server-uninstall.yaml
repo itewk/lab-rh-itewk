@@ -1,5 +1,5 @@
 ---
-- name: IDM | Uninstall
+- name: IDM Server | Uninstall
   hosts: ipaserver
   become: true
 

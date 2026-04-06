@@ -1,0 +1,6 @@
+---
+- name: Network | Configure
+  hosts: ipaclients
+  become: true
+
+  tasks:

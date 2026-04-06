@@ -1,7 +1,11 @@
 ipaserver:
   hosts:
-    idm.lab.rh-itewk:
+    idm.lab.rh-itewk.internal:
 
-bastions:
+ipaclients:
+  children:
+    builders:
+
+builders:
   hosts:
-    rhel10.lab.rh-itewk:
+    build.lab.rh-itewk.internal:
