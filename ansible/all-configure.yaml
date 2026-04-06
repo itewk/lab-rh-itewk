@@ -1,0 +1,9 @@
+---
+- name: All
+  hosts: all
+  roles:
+  - role: zsh
+  - role: dns_resolver
+    vars:
+      dns_resolver_domain: '{{ ipaserver_domain }}'
+      dns_resolver_ips: '{{ ipaserver_ip_addresses }}'

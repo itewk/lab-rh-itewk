@@ -1,0 +1,20 @@
+---
+- name: Check mandatory variables are defined
+  ansible.builtin.assert:
+    that:
+    - dns_resolver_domain is defined and dns_resolver_domain | length > 0
+    - dns_resolver_ips is defined and dns_resolver_ips | length > 0
+
+- name: create resolver directory
+  ansible.builtin.file:
+    path: /etc/resolver/
+    state: directory
+    mode: '0755'
+  become: true
+
+- name: install dns resolver
+  ansible.builtin.template:
+    src: templates/resolver.j2
+    dest: '/etc/resolver/{{ dns_resolver_domain }}'
+    mode: '0644'
+  become: true

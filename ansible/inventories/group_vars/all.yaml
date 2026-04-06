@@ -1,3 +1,4 @@
+ansible_python_interpreter: auto_silent
 ansible_user: itewk
 ansible_become_pass: !vault |
           $ANSIBLE_VAULT;1.1;AES256
