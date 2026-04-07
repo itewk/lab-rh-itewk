@@ -41,12 +41,10 @@
       url: https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
       dest: "{{ install_dir.path }}/ohmyzsh-install.sh"
       mode: '0700'
-    when: not ohmyzsh_sh_stat.stat.exists
 
   - name: oh-my-zsh | run installer
     ansible.builtin.command:
       cmd: "{{ install_dir.path }}/ohmyzsh-install.sh --unattended --skip-chsh"
-    when: not ohmyzsh_sh_stat.stat.exists
 
 - name: oh-my-zsh | download plugins
   ansible.builtin.git:

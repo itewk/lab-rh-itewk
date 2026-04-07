@@ -11,3 +11,12 @@ ansible_become_pass: !vault |
 ipaserver_ip_addresses:
 - 10.100.1.2
 ipaserver_domain: lab.rh-itewk.internal
+
+dns_connections:
+- name: 'enp0s1'
+  ipv4_dns:
+  - 9.9.9.9
+  - 149.112.112.112
+- name: 'enp0s2'
+  ipv4_dns:
+  - 10.100.1.2

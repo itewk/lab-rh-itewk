@@ -1,0 +1,7 @@
+---
+#dns_connections:
+#- name: ""
+#  ipv4_dns: []
+#dns_resolvers:
+#- domain: ""
+#  ips: []

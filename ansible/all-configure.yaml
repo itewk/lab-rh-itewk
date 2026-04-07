@@ -2,8 +2,11 @@
 - name: All
   hosts: all
   roles:
-  - role: zsh
-  - role: dns_resolver
+  - role: dns
     vars:
+      dns_resolvers:
+      - domain: '{{ ipaserver_domain }}'
+        ips: '{{ ipaserver_ip_addresses }}'
       dns_resolver_domain: '{{ ipaserver_domain }}'
       dns_resolver_ips: '{{ ipaserver_ip_addresses }}'
+  - role: zsh

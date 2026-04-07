@@ -17,9 +17,31 @@ ipaserver_realm: LAB.RH-ITEWK.INTERNAL
 ipaserver_hostname: idm.lab.rh-itewk.internal
 ipaserver_setup_dns: true
 ipaserver_auto_reverse: true
-ipaserver_no_forwarders: true
+ipaserver_forwarders:
+- 9.9.9.9
+- 149.112.112.112
+ipaserver_no_forwarders: false
 ipaserver_auto_forwarders: false
+ipaserver_forward_policy: first
+
 ipaserver_mem_check: no
+
+ipadnsrecords:
+- name: idm
+  ip_address: 10.100.1.2
+- name: build
+  ip_address: 10.100.1.3
+- name: sno-auth-testing
+  ip_address: 10.100.1.100
+- name: api.sno-auth-testing
+  ip_address: 10.100.1.100
+  create_reverse: false
+- name: api-int.sno-auth-testing
+  ip_address: 10.100.1.100
+  create_reverse: false
+- name: '*.apps.sno-auth-testing'
+  ip_address: 10.100.1.100
+  create_reverse: false
 
 # uninstalling params
 ipaserver_remove_on_server: idm.lab.rh-itewk

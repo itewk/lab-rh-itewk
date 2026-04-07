@@ -1,0 +1,5 @@
+domain {{ dns_resolver.domain }}
+search {{ dns_resolver.domain }}
+{% for dns_resolver_ip in dns_resolver.ips %}
+nameserver {{ dns_resolver_ip }}
+{% endfor %}

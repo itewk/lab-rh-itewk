@@ -1,0 +1,42 @@
+---
+dns-resolver:
+  config:
+    server:
+    - 10.100.1.2
+interfaces:
+- name: enp0s1
+  identifier: mac-address
+  mac-address: 9E:5C:F2:61:BD:84
+  ipv4:
+    address:
+    - ip: 10.100.0.100
+      prefix-length: 24
+    dhcp: false
+    enabled: true
+  ipv6:
+    enabled: false
+  state: up
+  type: ethernet
+- name: enp0s2
+  identifier: mac-address
+  mac-address: FE:BF:ED:F9:AD:97
+  ipv4:
+    address:
+    - ip: 10.100.1.100
+      prefix-length: 24
+    dhcp: false
+    enabled: true
+  ipv6:
+    enabled: false
+  state: up
+  type: ethernet
+routes:
+  config:
+  - destination: 0.0.0.0/0
+    next-hop-address: 10.100.0.1
+    next-hop-interface: enp0s1
+    table-id: 254
+  - destination: 0.0.0.0/0
+    next-hop-address: 10.100.1.1
+    next-hop-interface: enp0s2
+    table-id: 254

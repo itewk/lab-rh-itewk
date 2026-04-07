@@ -1,0 +1,31 @@
+---
+- name: connections | set dns
+  community.general.nmcli:
+    conn_name: '{{ dns_connection.name }}'
+    dns4: '{{ dns_connection.ipv4_dns }}'
+    type: ethernet
+    state: present
+  become: true
+  loop: '{{ dns_connections }}'
+  loop_control:
+    loop_var: dns_connection
+    label: '{{ dns_connection.name }}'
+
+- name: resolvers | create resolver directory
+  ansible.builtin.file:
+    path: /etc/resolver/
+    state: directory
+    mode: '0755'
+  become: true
+
+- name: resolvers | install dns resolvers
+  ansible.builtin.template:
+    src: templates/resolver.j2
+    dest: '/etc/resolver/{{ dns_resolver.domain }}'
+    mode: '0644'
+  become: true
+  loop: "{{ dns_resolvers }}"
+  loop_control:
+    loop_var: dns_resolver
+    label: "{{ dns_resolver.domain }}"
+
