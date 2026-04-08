@@ -1,1 +1,4 @@
 ansible/.DS_Store
+*.kubeadmin
+*.kubeconfig
+.DS_Store

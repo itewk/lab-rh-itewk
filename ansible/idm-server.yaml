@@ -12,13 +12,6 @@
 
   - name: ipaserver | create dns records
     freeipa.ansible_freeipa.ipadnsrecord:
-      name: '{{ ipadnsrecord.name }}'
-      zone_name: '{{ ipaserver_domain }}'
-      ip_address: '{{ ipadnsrecord.ip_address }}'
-      create_reverse: '{{ ipadnsrecord.create_reverse | default(true) }}'
       ipaadmin_password: '{{ ipaadmin_password }}'
-      state: present
-    loop: '{{ ipadnsrecords }}'
-    loop_control:
-      loop_var: ipadnsrecord
-      label: '{{ ipadnsrecord.name }}'
+      zone_name: '{{ ipaserver_domain }}'
+      records: '{{ ipadnsrecords }}'
