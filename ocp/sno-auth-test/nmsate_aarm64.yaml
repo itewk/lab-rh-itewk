@@ -6,7 +6,7 @@ dns-resolver:
 interfaces:
 - name: enp0s1
   identifier: mac-address
-  mac-address: 9E:5C:F2:61:BD:84
+  mac-address: AE:3F:E3:C6:A5:01
   ipv4:
     address:
     - ip: 10.100.0.100
@@ -19,7 +19,7 @@ interfaces:
   type: ethernet
 - name: enp0s2
   identifier: mac-address
-  mac-address: FE:BF:ED:F9:AD:97
+  mac-address: AE:3F:E3:C6:A5:02
   ipv4:
     address:
     - ip: 10.100.1.100
@@ -36,7 +36,11 @@ routes:
     next-hop-address: 10.100.0.1
     next-hop-interface: enp0s1
     table-id: 254
-  - destination: 0.0.0.0/0
+  - destination: 10.100.0.0/24
+    next-hop-address: 10.100.0.1
+    next-hop-interface: enp0s1
+    table-id: 254
+  - destination: 10.100.1.0/24
     next-hop-address: 10.100.1.1
     next-hop-interface: enp0s2
     table-id: 254
