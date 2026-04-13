@@ -1,0 +1,10 @@
+kind: Kustomization
+
+resources:
+- LVMCluster_lvm1.yaml
+
+helmCharts:
+- name: operators-installer
+  repo: https://redhat-cop.github.io/helm-charts
+  version: 3.5.0
+  valuesFile: operators-installer-values.yaml

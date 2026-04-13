@@ -1,0 +1,8 @@
+kind: Kustomization
+
+namespace: cert-manager
+
+resources:
+- Issuer_ca-bootstrap-issuer.yaml
+- Certificate_local-ca.yaml
+- ClusterIssuer_local-trusted-issuer.yaml

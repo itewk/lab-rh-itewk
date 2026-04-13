@@ -1,0 +1,4 @@
+kind: Kustomization
+
+resources:
+- Network_cluster.yaml

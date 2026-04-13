@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: local-ca
+  namespace: cert-manager
+spec:
+  isCA: true
+  commonName: local-ca
+  secretName: local-ca-tls-secret
+  issuerRef:
+    name: ca-bootstrap-issuer
+    kind: Issuer

@@ -1,0 +1,5 @@
+kind: Kustomization
+
+resources:
+- ImageRegistry-Config_cluster.yaml
+- PersistentVolumeClaim_image-registry-storage.yaml

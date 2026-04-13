@@ -1,10 +1,10 @@
 #!/bin/bash
 
-DESTINATION='~/.kube/config'
+DESTINATION='~/.kube'
 
 echo
 echo "Ensure destination exists: ${DESTINATION}"
-mkdir -p ~/.kube/config
+mkdir -p ${DESTINATION}
 
 echo
 echo "Decrypt ocp auth files"

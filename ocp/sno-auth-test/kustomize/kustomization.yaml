@@ -1,11 +1,9 @@
 kind: Kustomization
 
 resources:
-- Network_cluster.yaml
-- LVMCluster_lvm1.yaml
-
-helmCharts:
-- name: operators-installer
-  repo: https://redhat-cop.github.io/helm-charts
-  version: 3.5.0
-  valuesFile: values.yaml
+- cluster
+- cert-manager-operator
+- cert-manager
+- lvms-operator
+- image-registry
+- rhbk-operator
