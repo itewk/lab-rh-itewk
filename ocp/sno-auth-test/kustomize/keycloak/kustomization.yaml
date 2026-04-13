@@ -1,0 +1,12 @@
+kind: Kustomization
+
+namespace: keycloak
+
+resources:
+- Namespace_keycloak.yaml
+- Certificate_keycloak.yaml
+- Service_postgres-db.yaml
+- PVC_postgres-db.yaml
+- StatefulSet_postgresql-db.yaml
+- Secret_keycloak-db-secret.yaml
+- Keycloak_keycloak.yaml

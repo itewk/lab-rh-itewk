@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgresql-db
+spec:
+  serviceName: postgresql-db-service
+  selector:
+    matchLabels:
+      app: postgresql-db
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postgresql-db
+    spec:
+      containers:
+        - name: postgresql-db
+          image: registry.redhat.io/rhel9/postgresql-15:latest
+          resources:
+            limits:
+              memory: 128Gi
+            requests:
+              memory: 640Mi
+          volumeMounts:
+            - mountPath: /var/lib/pgsql/data
+              name: data
+          env:
+            - name: POSTGRESQL_USER
+              value: testuser
+            - name: POSTGRESQL_PASSWORD
+              value: testpassword
+            - name: POSTGRESQL_DATABASE
+              value: keycloak
+      volumes:
+        - name: data
+          persistentVolumeClaim:
+            claimName: postgres-db

@@ -4,7 +4,9 @@ installPlanApproverAndVerifyJobsImage: registry.redhat.io/openshift4/ose-cli-rhe
 operatorGroups:
 - name: rhbk-operator
   createNamespace: true
-  targetOwnNamespace: true
+  targetOwnNamespace: false
+  otherTargetNamespaces:
+  - keycloak
 operators:
 - channel: stable-v26.4
   installPlanApproval: Manual

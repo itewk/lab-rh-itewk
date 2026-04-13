@@ -1,5 +1,7 @@
 kind: Kustomization
 
+namespace: rhbk-operator
+
 helmCharts:
 - name: operators-installer
   repo: https://redhat-cop.github.io/helm-charts
