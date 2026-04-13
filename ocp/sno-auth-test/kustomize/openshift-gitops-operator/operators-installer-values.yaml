@@ -1,0 +1,16 @@
+---
+installPlanApproverAndVerifyJobsImage: registry.redhat.io/openshift4/ose-cli-rhel9@sha256:dcb3f93d34aa0fdab33eb37949adfaa8fdd11ff3479363bb7735c5ba3eb345ce
+
+operatorGroups:
+- name: openshift-gitops-operator
+  createNamespace: true
+  targetOwnNamespace: false
+operators:
+- channel: latest
+  installPlanApproval: Manual
+  automaticIntermediateManualUpgrades: true
+  name: openshift-gitops-operator
+  source: redhat-operators
+  sourceNamespace: openshift-marketplace
+  csv: openshift-gitops-operator.v1.20.1
+  namespace: openshift-gitops-operator

@@ -1,0 +1,6 @@
+kind: Kustomization
+
+namespace: openshift-monitoring
+
+resources:
+- ConfigMap_cluster-monitoring-config.yaml

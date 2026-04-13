@@ -1,0 +1,6 @@
+kind: Kustomization
+
+namespace: openshift-gitops
+
+resources:
+- ArgoCD_openshift-gitops.yaml

@@ -2,8 +2,11 @@ kind: Kustomization
 
 resources:
 - cluster
+- openshift-monitoring
 - cert-manager-operator
 - cert-manager
 - lvms-operator
 - image-registry
 - rhbk-operator
+- openshift-gitops-operator
+- openshift-gitops

@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cluster-monitoring-config
+  namespace: openshift-monitoring
+data:
+  config.yaml: |
+    prometheusK8s:
+      retention: 12h # Reduce from default 15d to lower memory/disk usage
+      resources:
+        requests:
+          memory: 2Gi # Lower this based on your cluster size
+        limits:
+          memory: 4Gi
+    alertmanagerMain:
+      resources:
+        requests:
+          memory: 200Mi
+    telemeterClient:
+      resources:
+        requests:
+          memory: 50Mi
+    prometheusOperator:
+      resources:
+        requests:
+          memory: 100Mi
