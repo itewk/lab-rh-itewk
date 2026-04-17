@@ -1,4 +1,6 @@
 kind: Kustomization
 
 resources:
-- Network_cluster.yaml
+- network
+- authentication
+- authorization

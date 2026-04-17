@@ -1,0 +1,23 @@
+apiVersion: config.openshift.io/v1
+kind: OAuth
+metadata:
+  name: cluster
+spec:
+  identityProviders:
+  - name: keycloak-idp
+    type: OpenID
+    mappingMethod: add
+    openID:
+      issuer: https://keycloak.apps.sno-auth-testing.lab.rh-itewk.internal/realms/lab-rh-itewk
+      clientID: sno-auth-testing
+      claims:
+        email:
+        - email
+        groups:
+        - groups
+        name:
+        - name
+        preferredUsername:
+        - preferred_username
+      clientSecret:
+        name: keycloak-client-secret

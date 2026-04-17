@@ -1,0 +1,5 @@
+kind: Kustomization
+
+resources:
+- Group_openshift-admins.yaml
+- ClusterRoleBinding_openshift-admins-cluster-admin.yaml

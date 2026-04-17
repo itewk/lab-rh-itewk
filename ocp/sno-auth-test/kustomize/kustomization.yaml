@@ -10,3 +10,4 @@ resources:
 - rhbk-operator
 - openshift-gitops-operator
 - openshift-gitops
+#- authentication
